@@ -1,4 +1,5 @@
 from src.pokemon import Pokemon
+import types
 
 class TestInstantiation:
     def test_new_instance_is_an_instance_of_class_pokemon(self):
@@ -20,3 +21,12 @@ class TestInstantiation:
     def test_is_instantiated_with_given_move(self):
         my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
         assert my_pokemon.move == "Razor leaf"
+
+class TestUseMoveMethod():
+    def test_use_move_method_is_a_method(self):
+        my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
+        assert isinstance(my_pokemon.use_move, types.MethodType)
+
+    def test_use_move_method_returns_a_formatted_message(self):
+        my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
+        assert my_pokemon.use_move() == "Bulbasaur used Razor leaf!"

@@ -20,3 +20,6 @@ class Pokemon:
     @property
     def move(self):
         return self.__move
+    
+    def use_move(self):
+        return f"{self.__name} used {self.__move}!"
