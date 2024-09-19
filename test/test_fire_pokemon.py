@@ -17,3 +17,7 @@ class TestInstantiation:
     def test_fire_pokemon_is_instantiated_with_strong_against_property(self):
         my_pokemon = FirePokemon("Charmander", 44, 17, "Flamethrower")
         assert my_pokemon.strong_against == ["grass"]
+
+    def test_fire_pokemon_is_instantiated_with_weak_against_property(self):
+        my_pokemon = FirePokemon("Charmander", 44, 17, "Flamethrower")
+        assert my_pokemon.weak_against == ["water"]

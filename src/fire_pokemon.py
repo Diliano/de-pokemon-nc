@@ -5,6 +5,7 @@ class FirePokemon(Pokemon):
         super().__init__(name, hit_points, attack_damage, move)
         self.__type = "fire"
         self.__strong_against = ["grass"]
+        self.__weak_against = ["water"]
 
     @property
     def type(self):
@@ -13,3 +14,7 @@ class FirePokemon(Pokemon):
     @property
     def strong_against(self):
         return self.__strong_against
+    
+    @property
+    def weak_against(self):
+        return self.__weak_against
