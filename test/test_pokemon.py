@@ -49,3 +49,18 @@ class TestTakeDamageMethod:
     def test_take_damage_method_returns_message_given_negative_damage(self):
         my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
         assert my_pokemon.take_damage(-5) == "Damage cannot be negative!"
+
+class TestHasFaintedMethod:
+    def test_has_fainted_method_is_a_method(self):
+        my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
+        assert isinstance(my_pokemon.has_fainted, types.MethodType)
+
+    def test_has_fainted_method_returns_true_if_hit_points_are_zero(self):
+        my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
+        my_pokemon.take_damage(45)
+        assert my_pokemon.has_fainted() == True
+
+    def test_has_fainted_method_returns_false_if_hit_points_are_more_than_zero(self):
+        my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
+        my_pokemon.take_damage(15)
+        assert my_pokemon.has_fainted() == False

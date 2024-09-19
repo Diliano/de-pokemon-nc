@@ -32,3 +32,6 @@ class Pokemon:
             self.__hit_points = 0
         else:
             self.__hit_points -= damage
+
+    def has_fainted(self):
+        return self.__hit_points == 0
