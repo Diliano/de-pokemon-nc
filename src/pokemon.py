@@ -23,3 +23,12 @@ class Pokemon:
     
     def use_move(self):
         return f"{self.__name} used {self.__move}!"
+    
+    def take_damage(self, damage):
+        if damage < 0:
+            return "Damage cannot be negative!"
+        
+        if damage > self.__hit_points:
+            self.__hit_points = 0
+        else:
+            self.__hit_points -= damage

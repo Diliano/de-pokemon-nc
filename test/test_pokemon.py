@@ -22,7 +22,7 @@ class TestInstantiation:
         my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
         assert my_pokemon.move == "Razor leaf"
 
-class TestUseMoveMethod():
+class TestUseMoveMethod:
     def test_use_move_method_is_a_method(self):
         my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
         assert isinstance(my_pokemon.use_move, types.MethodType)
@@ -30,3 +30,22 @@ class TestUseMoveMethod():
     def test_use_move_method_returns_a_formatted_message(self):
         my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
         assert my_pokemon.use_move() == "Bulbasaur used Razor leaf!"
+
+class TestTakeDamageMethod:
+    def test_take_damage_method_is_a_method(self):
+        my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
+        assert isinstance(my_pokemon.take_damage, types.MethodType)
+
+    def test_take_damage_method_reduces_health_by_given_amount(self):
+        my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
+        my_pokemon.take_damage(15)
+        assert my_pokemon.hit_points == 30
+
+    def test_take_damage_method_does_not_reduce_hit_points_beyond_0(self):
+        my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
+        my_pokemon.take_damage(50)
+        assert my_pokemon.hit_points == 0
+
+    def test_take_damage_method_returns_message_given_negative_damage(self):
+        my_pokemon = Pokemon("Bulbasaur", 45, 16, "Razor leaf")
+        assert my_pokemon.take_damage(-5) == "Damage cannot be negative!"
