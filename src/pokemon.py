@@ -3,6 +3,7 @@ class Pokemon:
         self.__name = name
         self.__hit_points = hit_points
         self.__attack_damage = attack_damage
+        self.__move = move
 
     @property
     def name(self):
@@ -15,3 +16,7 @@ class Pokemon:
     @property 
     def attack_damage(self):
         return self.__attack_damage
+    
+    @property
+    def move(self):
+        return self.__move
