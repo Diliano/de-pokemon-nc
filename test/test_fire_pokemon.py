@@ -13,3 +13,7 @@ class TestInstantiation:
     def test_fire_pokemon_is_instantiated_with_fire_type(self):
         my_pokemon = FirePokemon("Charmander", 44, 17, "Flamethrower")
         assert my_pokemon.type == "fire"
+
+    def test_fire_pokemon_is_instantiated_with_strong_against_property(self):
+        my_pokemon = FirePokemon("Charmander", 44, 17, "Flamethrower")
+        assert my_pokemon.strong_against == ["grass"]
