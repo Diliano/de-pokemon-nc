@@ -16,3 +16,6 @@ class Pokeball:
             self._pokemon = pokemon
         else:
             raise PokeballFullError
+        
+    def is_empty(self):
+        return self._pokemon is None

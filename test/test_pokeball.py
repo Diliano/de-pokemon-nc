@@ -20,7 +20,7 @@ class TestInstantiation:
         assert isinstance(pokeball, Pokeball)
 
     def test_pokeball_is_instantiated_with_pokemon_property_none(self, pokeball):
-        assert pokeball.pokemon == None
+        assert pokeball.pokemon is None
 
 class TestCatchMethod:
     def test_catch_method_captures_and_stores_given_pokemon_if_pokeball_is_empty(self, pokeball, fire_pokemon):
@@ -32,3 +32,11 @@ class TestCatchMethod:
         with pytest.raises(PokeballFullError) as excinfo:
             pokeball.catch(water_pokemon)
         assert str(excinfo.value) == "The Pokeball already contains a Pokemon"
+
+class TestIsEmptyMethod:
+    def test_is_empty_method_returns_true_if_pokeball_does_not_contain_a_pokemon(self, pokeball):
+        assert pokeball.is_empty()
+
+    def test_is_empty_method_returns_false_if_pokeball_contains_a_pokemon(self, pokeball, fire_pokemon):
+        pokeball.catch(fire_pokemon)
+        assert not pokeball.is_empty() 
