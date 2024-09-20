@@ -8,7 +8,7 @@ def trainer():
     return Trainer()
 
 @pytest.fixture
-def fire_pokemon():
+def charmander():
     return FirePokemon("Charmander", 44, 17, "Flamethrower")
 
 class TestInstantiation:
@@ -21,17 +21,17 @@ class TestInstantiation:
             assert isinstance(pokeball, Pokeball)
 
 class TestThrowPokeballMethod:
-    def test_throw_pokeball_method_uses_a_pokeball_to_catch_a_given_pokemon(self, trainer, fire_pokemon):
-        trainer.throw_pokeball(fire_pokemon)
-        assert any(pokeball.pokemon == fire_pokemon for pokeball in trainer.belt)
+    def test_throw_pokeball_method_uses_a_pokeball_to_catch_a_given_pokemon(self, trainer, charmander):
+        trainer.throw_pokeball(charmander)
+        assert any(pokeball.pokemon == charmander for pokeball in trainer.belt)
         
-    def test_throw_pokeball_method_raises_belt_full_exception_if_no_available_pokeballs(self, trainer, fire_pokemon):
-        trainer.throw_pokeball(fire_pokemon)
-        trainer.throw_pokeball(fire_pokemon)
-        trainer.throw_pokeball(fire_pokemon)
-        trainer.throw_pokeball(fire_pokemon)
-        trainer.throw_pokeball(fire_pokemon)
-        trainer.throw_pokeball(fire_pokemon)
+    def test_throw_pokeball_method_raises_belt_full_exception_if_no_available_pokeballs(self, trainer, charmander):
+        trainer.throw_pokeball(charmander)
+        trainer.throw_pokeball(charmander)
+        trainer.throw_pokeball(charmander)
+        trainer.throw_pokeball(charmander)
+        trainer.throw_pokeball(charmander)
+        trainer.throw_pokeball(charmander)
         with pytest.raises(BeltFullError) as excinfo:
-            trainer.throw_pokeball(fire_pokemon)
+            trainer.throw_pokeball(charmander)
         assert str(excinfo.value) == "All of the Pokeballs on the belt already contain a Pokemon"

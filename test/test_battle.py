@@ -16,3 +16,4 @@ class TestInstantiation:
         battle = Battle(fire_pokemon, water_pokemon)
         assert battle.pokemon_1 == fire_pokemon
         assert battle.pokemon_2 == water_pokemon
+
