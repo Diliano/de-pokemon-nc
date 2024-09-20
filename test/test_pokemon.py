@@ -41,8 +41,10 @@ class TestTakeDamageMethod:
         pokemon.take_damage(50)
         assert pokemon.hit_points == 0
 
-    def test_take_damage_method_returns_message_given_negative_damage(self, pokemon):
-        assert pokemon.take_damage(-5) == "Damage cannot be negative!"
+    def test_take_damage_method_raises_value_error_given_negative_damage(self, pokemon):
+        with pytest.raises(ValueError) as excinfo:
+            pokemon.take_damage(-5)
+        assert str(excinfo.value) == "Damage cannot be negative!"
 
 class TestHasFaintedMethod:
     def test_has_fainted_method_is_a_method(self, pokemon):

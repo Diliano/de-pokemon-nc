@@ -41,7 +41,7 @@ class Pokemon:
     
     def take_damage(self, damage):
         if damage < 0:
-            return "Damage cannot be negative!"
+            raise ValueError("Damage cannot be negative!")
         
         if damage > self._hit_points:
             self._hit_points = 0
