@@ -50,3 +50,11 @@ class Pokemon:
 
     def has_fainted(self):
         return self._hit_points == 0
+    
+    def get_multiplier(self, other_pokemon):
+        if other_pokemon.type in self._strong_against:
+            return 1.5
+        elif other_pokemon.type in self._weak_against:
+            return 0.5 
+        else:
+            return 1
