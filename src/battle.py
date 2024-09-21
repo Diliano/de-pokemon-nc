@@ -31,3 +31,11 @@ class Battle:
             damage = int(self._pokemon_2.attack_damage * self._pokemon_2.get_multiplier(self._pokemon_1))
             self._pokemon_1.take_damage(damage)
         self._pokemon_1_turn = not self._pokemon_1_turn
+
+    def get_winner(self):
+        if self._pokemon_1.has_fainted():
+            return self._pokemon_2
+        elif self._pokemon_2.has_fainted():
+            return self._pokemon_1
+        else:
+            return None
