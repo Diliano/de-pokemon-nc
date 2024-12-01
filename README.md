@@ -1,5 +1,5 @@
-# Pokemon Battle Game
+# Data Engineering Bootcamp - Pokemon Battle Game
 
-For this sprint, head to Northcoder's L2C app:
+## Overview
 
-https://l2c.northcoders.com/courses/de2-fun/pokemon-battler
+This repository contains work completed as part of the Pokemon Battle Game Sprint during my Data Engineering Bootcamp. 
